@@ -25,3 +25,9 @@ replay_pid*
 
 # Environment variables – never commit API keys
 .env
+
+# Maven build output
+target/
+
+# IntelliJ IDEA
+.idea/
