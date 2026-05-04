@@ -1,4 +1,9 @@
 se/viktor/labs/aimiddleware/model/ChatResponse.class
-se/viktor/labs/aimiddleware/model/Message.class
-se/viktor/labs/aimiddleware/AiMiddlewareApplication.class
+se/viktor/labs/aimiddleware/client/LlmClient$LlmResponse$Choice.class
 se/viktor/labs/aimiddleware/model/ChatRequest.class
+se/viktor/labs/aimiddleware/config/RestClientConfig.class
+se/viktor/labs/aimiddleware/client/LlmClient.class
+se/viktor/labs/aimiddleware/model/Message.class
+se/viktor/labs/aimiddleware/client/LlmClient$LlmRequest.class
+se/viktor/labs/aimiddleware/AiMiddlewareApplication.class
+se/viktor/labs/aimiddleware/client/LlmClient$LlmResponse.class
