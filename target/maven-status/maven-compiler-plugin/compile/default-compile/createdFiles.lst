@@ -1,1 +1,4 @@
+se/viktor/labs/aimiddleware/model/ChatResponse.class
+se/viktor/labs/aimiddleware/model/Message.class
 se/viktor/labs/aimiddleware/AiMiddlewareApplication.class
+se/viktor/labs/aimiddleware/model/ChatRequest.class

@@ -1,1 +1,4 @@
 /Users/viktor/IdeaProjects/ai-spring-middleware/src/main/java/se/viktor/labs/aimiddleware/AiMiddlewareApplication.java
+/Users/viktor/IdeaProjects/ai-spring-middleware/src/main/java/se/viktor/labs/aimiddleware/model/ChatRequest.java
+/Users/viktor/IdeaProjects/ai-spring-middleware/src/main/java/se/viktor/labs/aimiddleware/model/ChatResponse.java
+/Users/viktor/IdeaProjects/ai-spring-middleware/src/main/java/se/viktor/labs/aimiddleware/model/Message.java
