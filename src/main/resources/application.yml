@@ -2,6 +2,7 @@ spring:
   application:
     name: ai-middleware
 
+
 server:
   port: 8080
 
