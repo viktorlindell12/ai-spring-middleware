@@ -12,3 +12,7 @@ llm:
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
+
+logging:
+  level:
+    org.springframework.web.client: WARN
