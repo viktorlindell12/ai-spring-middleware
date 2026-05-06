@@ -15,7 +15,7 @@ import java.util.List;
 @Component
 public class LlmClient {
 
-    private static final String MODEL = "openai/gpt-3.5-turbo";
+    private static final String MODEL = "tencent/hy3-preview:free";
     private static final String CHAT_COMPLETIONS_PATH = "/chat/completions";
 
     private final RestClient restClient;
