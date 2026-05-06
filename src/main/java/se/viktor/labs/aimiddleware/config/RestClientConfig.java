@@ -3,12 +3,14 @@ package se.viktor.labs.aimiddleware.config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.retry.annotation.EnableRetry;
 import org.springframework.web.client.RestClient;
 
 /**
  * Configures the {@link RestClient} bean used to communicate with the LLM API.
  * Base URL and authorization header are set once at startup from application.yml.
  */
+@EnableRetry
 @Configuration
 public class RestClientConfig {
 

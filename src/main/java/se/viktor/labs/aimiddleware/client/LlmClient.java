@@ -1,5 +1,7 @@
 package se.viktor.labs.aimiddleware.client;
 
+import org.springframework.retry.annotation.Backoff;
+import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
 import se.viktor.labs.aimiddleware.model.Message;
@@ -28,6 +30,7 @@ public class LlmClient {
      * @param messages the full conversation history including system prompt and user messages
      * @return the text content of the LLM's response
      */
+    @Retryable(retryFor = Exception.class, maxAttempts = 3, backoff = @Backoff(delay = 1000, multiplier = 2))
     public String sendMessages(List<Message> messages) {
         LlmRequest request = new LlmRequest(MODEL, messages);
 
