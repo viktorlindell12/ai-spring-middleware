@@ -172,14 +172,15 @@
             <h1>AI Middleware Chat</h1>
             <p>Powered by OpenRouter</p>
         </div>
-        <select id="personality">
+        <label for="personality" style="position:absolute;width:1px;height:1px;overflow:hidden">Personality</label>
+        <select id="personality" aria-label="Select personality">
             <option value="helper">Helper</option>
             <option value="coder">Coder</option>
             <option value="pirate">Pirate</option>
         </select>
     </div>
 
-    <div class="messages" id="messages">
+    <div class="messages" id="messages" aria-live="polite" aria-label="Chat messages">
         <div class="welcome">
             <strong>Welcome!</strong> Choose a personality in the top right, then start chatting.<br><br>
             🧑‍💻 <strong>Coder</strong> — helps with programming, code reviews and technical questions<br>
@@ -189,13 +190,14 @@
     </div>
 
     <div class="input-area">
-        <textarea id="input" placeholder="Type a message..." rows="1"></textarea>
+        <label for="input" style="position:absolute;width:1px;height:1px;overflow:hidden">Message</label>
+        <textarea id="input" placeholder="Type a message..." rows="1" aria-label="Type a message"></textarea>
         <button id="send">Send</button>
     </div>
 </div>
 
 <script>
-    const sessionId = crypto.randomUUID();
+    const sessionId = crypto.randomUUID?.() ?? Math.random().toString(36).slice(2) + Date.now();
     const messagesEl = document.getElementById('messages');
     const inputEl = document.getElementById('input');
     const sendBtn = document.getElementById('send');
@@ -258,7 +260,7 @@
             if (!res.ok) {
                 addMessage(data.error || 'Something went wrong.', 'error');
             } else {
-                addMessage(data.response, 'assistant');
+                addMessage(data.response ?? 'No response received.', 'assistant');
             }
         } catch (e) {
             removeTyping();
