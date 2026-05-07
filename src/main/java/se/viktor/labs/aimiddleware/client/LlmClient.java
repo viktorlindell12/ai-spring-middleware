@@ -1,5 +1,6 @@
 package se.viktor.labs.aimiddleware.client;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.retry.annotation.Backoff;
 import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Component;
@@ -15,13 +16,14 @@ import java.util.List;
 @Component
 public class LlmClient {
 
-    private static final String MODEL = "tencent/hy3-preview:free";
     private static final String CHAT_COMPLETIONS_PATH = "/chat/completions";
 
     private final RestClient restClient;
+    private final String model;
 
-    public LlmClient(RestClient restClient) {
+    public LlmClient(RestClient restClient, @Value("${llm.model}") String model) {
         this.restClient = restClient;
+        this.model = model;
     }
 
     /**
@@ -32,7 +34,7 @@ public class LlmClient {
      */
     @Retryable(retryFor = Exception.class, maxAttempts = 3, backoff = @Backoff(delay = 1000, multiplier = 2))
     public String sendMessages(List<Message> messages) {
-        LlmRequest request = new LlmRequest(MODEL, messages);
+        LlmRequest request = new LlmRequest(model, messages);
 
         LlmResponse response = restClient.post()
                 .uri(CHAT_COMPLETIONS_PATH)
