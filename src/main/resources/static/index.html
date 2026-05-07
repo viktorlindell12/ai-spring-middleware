@@ -222,10 +222,13 @@
         document.getElementById('typing')?.remove();
     }
 
+    let sending = false;
+
     async function send() {
         const message = inputEl.value.trim();
-        if (!message) return;
+        if (!message || sending) return;
 
+        sending = true;
         inputEl.value = '';
         sendBtn.disabled = true;
         addMessage(message, 'user');
@@ -242,8 +245,15 @@
                 })
             });
 
-            const data = await res.json();
             removeTyping();
+
+            let data;
+            try {
+                data = await res.json();
+            } catch {
+                addMessage('Unexpected response from server.', 'error');
+                return;
+            }
 
             if (!res.ok) {
                 addMessage(data.error || 'Something went wrong.', 'error');
@@ -254,6 +264,7 @@
             removeTyping();
             addMessage('Could not reach the server.', 'error');
         } finally {
+            sending = false;
             sendBtn.disabled = false;
             inputEl.focus();
         }

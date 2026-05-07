@@ -23,8 +23,20 @@ Spring Boot middleware service that acts as a bridge between the user and a Larg
    ```
 
 2. Set your API key as an environment variable:
+
+   **macOS/Linux:**
    ```bash
    export OPENROUTER_API_KEY=your-key-here
+   ```
+
+   **Windows (PowerShell):**
+   ```powershell
+   $env:OPENROUTER_API_KEY="your-key-here"
+   ```
+
+   **Windows (CMD):**
+   ```cmd
+   set OPENROUTER_API_KEY=your-key-here
    ```
 
 3. Start the application:
